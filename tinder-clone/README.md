@@ -13,6 +13,7 @@ A Tinder clone using MERN stack
 
 -   REACT
 -   Firebase to host front end
+-   Material UI
 -   Express
 -   MongoDB
 -   Hosting Heroku
