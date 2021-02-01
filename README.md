@@ -11,7 +11,7 @@
 
 ### Demo
 
-<img src= "https://i.imgur.com/t3LqTVP.gif" alt="Gif of Tinder clone" width="70%">
+<img src= "https://i.imgur.com/PMY7unF.gif" alt="Gif of Tinder clone" width="70%">
 
 </br>
 
