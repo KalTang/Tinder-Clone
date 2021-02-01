@@ -1,22 +1,25 @@
 import { SwipeableDrawer } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCards.css";
+import axios from "../axios";
 
 function TinderCards() {
     //stores the cards
-    const [pet, setPet] = useState([
-        {
-            name: "Monkey",
-            url: "https://i.imgur.com/gnugYjA.jpg",
-        },
-        {
-            name: "BeebBoop",
-            url: "https://i.imgur.com/gnugYjA.jpg",
-        },
-    ]);
+    const [pet, setPet] = useState([]);
 
-    const swiped = (direction, nameToDelete) => {
+    //It will only run the tender code once
+    useEffect(() => {
+        async function fetchData() {
+            const req = await axios.get("/tinder/cards");
+
+            setPet(req.data);
+        }
+
+        fetchData();
+    }, []);
+
+    const swiped = (nameToDelete) => {
         console.log("removing: " + nameToDelete);
         // setLastDirection(direction);
     };
@@ -37,7 +40,7 @@ function TinderCards() {
                     >
                         <div
                             //renders text
-                            style={{ backgroundImage: `url(${p.url})` }}
+                            style={{ backgroundImage: `url(${p.imgUrl})` }}
                             className="card"
                         >
                             <h3>{p.name}</h3>
